@@ -8,9 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**
- * Created by rnadir on 7/21/17.
- */
 public class PropertyReader {
 
     private static String environment;
@@ -31,7 +28,6 @@ public class PropertyReader {
         } catch(IOException e) {
 
             logger.warn(e.getMessage());
-
         }
     }
 

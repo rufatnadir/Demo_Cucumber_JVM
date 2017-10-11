@@ -110,6 +110,5 @@ public class WikipediaSteps {
         if (result == 0) {
             logger.warn("Couldn't find '" + item + "' in autocomplete drop down list");
         }
-
     }
 }
