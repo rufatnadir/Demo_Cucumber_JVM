@@ -3,3 +3,4 @@ hs_err_pid*
 .idea/
 target/
 PrometheusGroupCucumber.iml
+/.sonar/
