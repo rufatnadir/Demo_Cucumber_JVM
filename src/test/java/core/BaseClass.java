@@ -37,4 +37,9 @@ public class BaseClass {
         waitForElementToBeVisible(element, 30);
         element.sendKeys(text);
     }
+
+    public static void waitForAttributeEquals(WebElement element, String attribute, String value){
+        new WebDriverWait(driver, 10).until(ExpectedConditions
+                .attributeToBe(element, attribute, value));
+    }
 }
