@@ -1,5 +1,6 @@
 package step_definitions;
 
+import core.BaseClass;
 import core.Hooks;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -24,9 +25,9 @@ public class WikipediaSteps {
     public WikipediaSteps() throws Exception {
     }
 
-    @Given("^Navigate to \"([^\"]*)\"$")
-    public void navigateTo(String testPage) {
-        String url = props.readProperty(testPage);
+    @Given("^Navigate to wikipedia home$")
+    public void navigateTo() {
+        String url = props.readProperty("wikipedia_url");
 
         driver.navigate().to(url);
         logger.info("Navigate to "+url);
