@@ -33,23 +33,21 @@ public class Hooks {
     private static String browser = props.readProperty("browser");
 
 
-    public static WebDriver getDriver() throws Exception {
+    public static WebDriver getDriver() {
 
         if (browser.equalsIgnoreCase("chrome")) {
             if (System.getProperty("os.name").contains("Mac")) {
-                System.setProperty("webdriver.chrome.driver", PATH_TO_DRIVERS + "chromedriver");
+                System.setProperty("webdriver.chrome.driver", PATH_TO_DRIVERS + "chromedriver_81");
             } else if (System.getProperty("os.name").contains("Windows")) {
                 System.setProperty("webdriver.chrome.driver", PATH_TO_DRIVERS + "chromedriver.exe");
             } else {
                 logger.info("Couldn't detect System OS");
                 Assert.fail();
             }
+
             ChromeOptions options = new ChromeOptions();
             options.addArguments("disable-infobars");
-//            options.addArguments("start-fullscreen");
-            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-            capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-            driver = new ChromeDriver(capabilities);
+            driver = new ChromeDriver(options);
 
 
             // FireFox
@@ -58,7 +56,7 @@ public class Hooks {
         }
 
         driver.manage().deleteAllCookies();
-        logger.info("Deleting cookies");
+//        logger.info("Deleting cookies");
         driver.manage().window().maximize();
         logger.info("Window size is: " + driver.manage().window().getSize());
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -68,7 +66,7 @@ public class Hooks {
 
     @Before
 
-    public static void startScenario(Scenario scenario) throws Exception {
+    public static void startScenario(Scenario scenario) {
 
         logger.info("\n############################################################################################\n" +
                 "------- SCENARIO '" + scenario.getName() + "' STARTED! -------\n"

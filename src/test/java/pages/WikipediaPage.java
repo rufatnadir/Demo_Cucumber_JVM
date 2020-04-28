@@ -26,7 +26,7 @@ public class WikipediaPage extends BaseClass {
     @FindBy(xpath = ".//*[@id='toc']")
     public WebElement contents_panel;
 
-    @FindBy(xpath = ".//a[@class='togglelink' and @role='button']")
+    @FindBy(xpath = "//label[@class='toctogglelabel']")
     public WebElement content_togglelink;
 
     @FindBy(xpath = "//*[@class='suggestions-results']/a")
